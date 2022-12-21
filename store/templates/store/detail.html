@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="detail article">
+    <div class="fav-btn">
+      <i class="fas fa-heart"></i>
+    </div>
+    <h2>{{ product.name }}</h2>
+    <div class="image">
+      <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" >
+    </div>
+    <p class="desc">{{ product.description }}</p>
+
+    <div class="details">
+      <p>{{ product.price }} $</p>
+      <p>{{ product.stock }} en stock</p>
+      {% if user.is_authenticated %}
+      <div class="panier">
+        <a href="{% url 'add-to-cart' product.slug %}">Ajouter au panier</a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+{% endblock %}

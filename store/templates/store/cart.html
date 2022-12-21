@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <div class="panier">
+            {% for order in orders %}
+            <div class="cart">
+                <h2>{{ order.product.name }}</h2>
+                <p>{{ order.product.price }} $</p>
+                <p class="desc">
+                    {{ order.product.description }}
+                </p>
+                <p>Le nombre d'article ajoutée au panier est de {{ order.quantity }} </p>
+            </div>
+            {% endfor %}
+            <div class="bouton panier">
+                <a href="{% url 'delete-cart' %}" class="supp">Supprimer le panier</a>
+            </div>
+        </div>
+{% endblock %}

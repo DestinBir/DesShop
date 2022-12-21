@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% for product in products %}
+        <div class="article">
+            <div class="fav-btn">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="image" >
+                <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" >
+            </div>
+            <h2>{{ product.name }}</h2>
+            <p class="desc">
+                {{ product.description }}
+            </p>
+            <div class="details">
+                <p>{{ product.price }} $</p>
+                <div class="panier">
+                    <a href="{{ product.get_absolute_url }}">Voir plus</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}
