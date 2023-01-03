@@ -5,7 +5,7 @@
     {% for product in products %}
         <div class="article">
             <div class="fav-btn">
-                <i class="fas fa-heart"></i>
+                <a href="{% url 'setFav' product.slug %}"><i class="fas fa-heart"></i></a>
             </div>
             <div class="image" >
                 <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" >

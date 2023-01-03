@@ -4,7 +4,7 @@
 
   <div class="detail article">
     <div class="fav-btn">
-      <i class="fas fa-heart"></i>
+      <a href="{% url 'setFav' product.slug %}"><i class="fas fa-heart"></i></a>
     </div>
     <h2>{{ product.name }}</h2>
     <div class="image">
