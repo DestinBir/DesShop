@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.urls import path
 
 from accounts.views import signup, logout_user, login_user
-from store.views import index, product_detail, add_to_cart, cart, delete_cart, setFav
+from store.views import index, product_detail, add_to_cart, cart, delete_cart
 from shop import settings
 
 
@@ -17,5 +17,4 @@ urlpatterns = [
     path('cart/delete/', delete_cart, name='delete-cart'),
     path('product/<str:slug>/', product_detail, name='product'),
     path('product/<str:slug>/add-to-cart', add_to_cart, name='add-to-cart'),
-    path('product/<str:slug>/setFav', setFav, name='setFav'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

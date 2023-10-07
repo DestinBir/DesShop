@@ -12,22 +12,12 @@ class Product(models.Model):
     stock = models.IntegerField(default=0)
     description = models.TextField(blank=True)
     thumbnail = models.ImageField(upload_to="products", blank=True, null=True)
-    fav = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
         return reverse("product", kwargs={"slug": self.slug})
-    
-    def setFav (self):
-        self.fav = True
-        return
-    
-    def setStock (self):
-        st = self.stock
-        self.stock = st-1
-        return
 
 
 class Order(models.Model):

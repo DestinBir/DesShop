@@ -28,7 +28,7 @@ def add_to_cart(request, slug):
         else:
             order.quantity += 1
             order.save()
-        product.setStock()
+        product.stock = int(product.stock) - 1
     else:
         pass
 
@@ -48,9 +48,3 @@ def delete_cart(request):
 
     return redirect('index')
 
-def setFav(request):
-    if Product.fav:
-        pass
-    else:
-        Product.setFav
-    return redirect('index')
